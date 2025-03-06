@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amazon</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scrollbar-width: none;
+      }
+      .nav-1 {
+       min-height: 70px;
+       max-height: 70px;
+        min-width: 100vw;
+        background-color: rgb(20, 22, 35);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+      }
+      .delivery {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.852);
+      }
+      .update {
+        font-size: 14px;
+      }
+      .input-group{
+        width: 540px;
+        outline: none;
+      }
+      .en{
+        border: none;
+      }
+      .sign-in{
+        font-size: 14px;
+      }
+      .account{
+        font-size: 14px; 
+      }
+      .amz-logo,.loc,.input-group,.dropdown,.hello,.return,.cart{
+        border: 1px solid  rgb(20, 22, 35);
+        padding: 3px;
+        cursor: pointer;
+      }
+       .amz-logo:hover{
+        border: 1px solid white;
+      }
+      .loc:hover{
+        border: 1px solid white;
+      }
+      .dropdown:hover{
+        border: 1px solid white;
+      }
+      .hello:hover{
+        border: 1px solid white;
+      }
+      .return:hover{
+        border: 1px solid white;
+      }
+      .cart:hover{
+        border: 1px solid white;
+      }
+      .nav-2{
+        min-width: 100vw;
+        min-height: 35px;
+        max-height: 35px;
+        background-color: #222f3e;
+        margin-top: 70px;
+      }
+      .all,.nv2-para{
+        padding: 2px;
+        cursor: pointer;
+        border: 1px solid rgb(34,47,62 );
+      }
+      .all:hover{
+        border: 1px solid white;
+      }
+      .nv2-para:hover{
+        border: 1px solid white;
+      }
+      .fade-grad{
+        width:100vw;
+        height: 100vh;
+        background:linear-gradient(to bottom,transparent,white,white,white,white) ;
+        position: relative;
+        bottom: 300px;
+      }
+      .row-one{
+        display: flex;
+        justify-content: space-evenly;
+      }
+      .box-1,.box-2,.box-3,.box-4{
+        min-width: 296px;
+        height: 435px;
+        min-height: 435px;
+        background-color: white;
+        box-shadow:0 0 20px rgba(109, 85, 85, 0.212) ;
+        margin-top: 30px;
+        margin-left: 20px;
+        /* margin:auto; */
+      }
+      .box-4{
+        margin-right: 20px;
+      }
+      .box-5,.box-6,.box-7,.box-8{
+        min-width: 296px;
+        height: 435px;
+        min-height: 435px;
+        background-color:white;
+        box-shadow:0 0 20px rgba(109, 85, 85, 0.212) ;
+        margin-top: 30px;
+        margin-left: 20px;
+      }
+      .box-8{
+        margin-right: 20px;
+      }
+      .box-9,.box-10{
+       min-width: 97%;
+      height: 280px;
+      min-height: 280px;
+        background-color: white;
+        box-shadow:0 0 20px rgba(109, 85, 85, 0.212) ;
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-evenly;
+        /* margin-left: 20px; */
+        margin:  10px auto;
+        overflow: scroll;
+      }
+      .ref{
+        padding-right:4px;
+      }
+      .seemore{
+        color: rgb(31, 31, 130);
+      }
+      .seemore:hover{
+        cursor: pointer;
+        color: grey;
+      }
+      .mop{
+        font-size: 13px;
+      }
+      .row-two{
+        display: flex;
+        justify-content: space-evenly;
+      }
+      .box-9:hover{
+        cursor: pointer;
+      }
+      .box-10:hover{
+        cursor: pointer;
+      }
+      .main-box1 :hover{
+        cursor: pointer;
+      }
+      .main-box2-1:hover{
+        cursor: pointer;
+      }
+      
+
+
+    </style>
+  </head>
+  <body>
+    <div class="nav-1 d-flex justify-content-start align-items-center">
+      <img src="amazon-logo[1].png" alt="" width="9%" class="mx-3 amz-logo" />
+
+      <div
+        class="loc text-light d-flex justify-content-center align-items-center"
+      >
+        <i class="fa-solid fa-location-dot" class="mx-1"></i>
+        <div class="address class mx-2">
+          <p class="m-0 delivery">Delivering to Pune 411001</p>
+          <b class="m-0 update">Update location</b>
+        </div>
+      </div>
+
+      <div class="input-group mb-3">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          All
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">All Categories</a></li>
+          <li><a class="dropdown-item" href="#">Alexa Skills</a></li>
+          <li><a class="dropdown-item" href="#">Amazon Devices</a></li>
+          <li><hr class="dropdown-divider" /></li>
+          <li><a class="dropdown-item" href="#">Amazon Fashion</a></li>
+        </ul>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search Amazon.in"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+        />
+        <span class="input-group-text bg-warning" id="basic-addon1"
+          ><i class="fa-solid fa-magnifying-glass"></i
+        ></span>
+      </div>
+
+      <div class="dropdown mx-1">
+        <button class="btn btn-transparent dropdown-toggle text-light en" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="india.png" alt="" width="25px">EN
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">हिन्दी: HI </a></li>
+          <li><a class="dropdown-item" href="#">తెలుగు: TE </a></li>
+          <li><a class="dropdown-item" href="#">मराठी: MR</a></li>
+        </ul>
+      </div>
+
+      <div class="hello text-light">
+        <p class="m-0 sign-in">Hello,sign in</p>
+        <b class="m-0 account">Account & Lists <i class="fa-solid fa-caret-down text-secondary"></i></b>
+      </div>
+
+      <div class="return text-light mx-1">
+        <p class="m-0 sign-in">Returns</p>
+        <b class="m-0 account">& Orders</b>
+      </div>
+
+      <div class="d-flex justify-content-center align-items-center cart">
+        <i class="fa-solid fa-cart-shopping text-light"></i>
+        <b class="text-light m-0 mx-2">Cart</b>
+      </div>
+    </div>
+
+    <div class="nav-2  d-flex">
+      <div class="all d-flex justify-content-start align-items-center mx-2">
+        <i class="fa-solid fa-list text-light mx-1 m-0"></i>
+        <b class="text-light m-0">All</b>
+      </div>
+
+      <div class="mx-1 nv2-para">
+        <p class="text-light">Fresh</p>
+      </div>
+
+      <div class="mx-1 nv2-para">
+        <p class="text-light">MX Player</p>
+      </div>
+
+      <div class="mx-1 nv2-para">
+        <p class="text-light">Sell</p>
+      </div>
+
+      <div class="mx-1 nv2-para">
+        <p class="text-light"> Best Sellers</p>
+      </div>
+
+      <div class="mx-1 nv2-para">
+        <p class="text-light">Today's Deals</p>
+      </div>
+
+      <div class="mx-1 nv2-para">
+        <p class="text-light">Mobiles</p>
+      </div>
+
+      <div class="mx-1 nv2-para">
+        <p class="text-light">Customer Services</p>
+      </div>
+
+      <div class="mx-1 nv2-para">
+        <p class="text-light">Electronics</p>
+      </div>
+
+      <div class="mx-1 nv2-para">
+        <p class="text-light">Prime<i class="fa-solid fa-caret-down text-secondary mx-1"></i></p>
+      </div>
+
+      <div class="mx-1 nv2-para">
+        <p class="text-light">New Releases</p>
+      </div>
+
+      <div class="mx-1 nv2-para">
+        <p class="text-light">Amazon Pay</p>
+      </div>
+
+      <div class="mx-1 nv2-para">
+        <p class="text-light">Home & Kitchen</p>
+      </div>
+
+      <div class="mx-1 nv2-para">
+        <p class="text-light">Fashion</p>
+      </div>
+    </div>
+
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="2000">
+          <img src="carousel1.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+          <img src="carousel2.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item data-bs-interval="2000">
+          <img src="carousel3.png" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <div class="fade-grad">
+      <div class="row-one d-flex">
+        <div class="box-1 d-flex flex-wrap ">
+          <p class="m-0 fw-bolder fs-5 mx-3 mt-4">Appliances for your</p>
+          <p class="m-0 fw-bolder fs-5 mx-3">home | Up to 55% off</p>
+          <div  class="main-box1 d-flex my-3">
+            <div class="b0x-1">
+              <img src="ama1.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3">Air conditioners</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama2.png" alt="" height="78px" class="ref">
+              <p class="">Refrigerators</p>
+            </div> 
+          </div>
+          <div  class="main-box1 d-flex my-3">
+            <div class="b0x-1">
+              <img src="ama3.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3">Microwaves</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama4.jpg" alt="" height="78px" class="ref">
+              <p class="">Washing machines</p>
+            </div> 
+          </div>
+          <p class="mx-3 seemore">See more</p>
+        </div>
+
+
+        <div class="box-2">
+          <p class="m-0 fw-bolder fs-5 mx-3 mt-3">Starting ₹99 | Home</p>
+          <p class="m-0 fw-bolder fs-5 mx-3">improvement essentials</p>
+          <div  class="main-box2-1 d-flex my-3">
+            <div class="b0x-1">
+              <img src="ama5.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3 mop">Spin mops,wipes & more</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama6.jpg" alt="" height="78px" class="ref">
+              <p class="mop">Bathroom hardware & accessories</p>
+            </div> 
+          </div>
+          <div  class="main-box2-1 d-flex my-3">
+            <div class="b0x-1">
+              <img src="ama7.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3 mop">Hammers, screwdrivers & more</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama8.jpg" alt="" height="78px" class="ref">
+              <p class="mop">Extension boards, plugs & more</p>
+            </div>
+          </div>
+          <p class="mx-3 seemore">Explore all</p> 
+        </div>
+
+
+        <div class="box-3">
+          <p class="m-0 fw-bolder fs-5 mx-3 mt-3">Revamp your home in</p>
+          <p class="m-0 fw-bolder fs-5 mx-3">style</p>
+          <div  class="main-box2-1 d-flex my-3">
+            <div class="b0x-1">
+              <img src="ama9.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3 mop">Cushion covers, bedsheets & more</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama10.jpg" alt="" height="78px" class="ref">
+              <p class="mop">Figurines, vases & more</p>
+            </div> 
+          </div>
+          <div  class="main-box2-1 d-flex my-4">
+            <div class="b0x-1">
+              <img src="ama11.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3 mop">Home storage</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama12.jpg" alt="" height="78px" class="ref">
+              <p class="mop">Lighting solutions</p>
+            </div>
+          </div>
+          <p class="mx-3 seemore mt-4">Explore all</p> 
+        </div>
+
+
+        <div class="box-4">
+          <p class="m-0 fw-bolder fs-5 mx-3 mt-3">Explore more from Small</p>
+          <p class="m-0 fw-bolder fs-5 mx-3">Businesses</p>
+          <div  class="main-box2-1 d-flex my-3">
+            <div class="b0x-1">
+              <img src="ama13.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3 mop">Ethnic, dresses & more</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama14.jpg" alt="" height="78px" class="ref">
+              <p class="mop">Decor</p>
+            </div> 
+          </div>
+          <div  class="main-box2-1 d-flex my-3">
+            <div class="b0x-1">
+              <img src="ama15.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3 mop">Fashion accessories</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama16.jpg" alt="" height="78px" class="ref">
+              <p class="mop">Glassware & drinkware</p>
+            </div>
+          </div>
+          <p class="mx-3 seemore mt-5">Explore all</p> 
+        </div>
+      </div>
+
+
+
+
+
+      <div class="row-two d-flex">
+       <div class="box-5">
+        <p class="m-0 fw-bolder fs-5 mx-3 mt-4">Automotive essentials |</p>
+          <p class="m-0 fw-bolder fs-5 mx-3">Up to 60% off</p>
+          <div  class="main-box1 d-flex my-3">
+            <div class="b0x-1">
+              <img src="ama17.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3">Cleaning accessories</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama18.jpg" alt="" height="78px" class="ref">
+              <p class="">Tyre & rim care</p>
+            </div> 
+          </div>
+          <div  class="main-box1 d-flex my-3">
+            <div class="b0x-1">
+              <img src="ama19.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3">Helmets</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama20.jpg" alt="" height="78px" class="ref">
+              <p class="">Vacuum cleaner</p>
+            </div> 
+          </div>
+          <p class="mx-3 seemore">See more</p>
+        </div>
+
+
+        <div class="box-2">
+          <p class="m-0 fw-bolder fs-5 mx-3 mt-3">Starting ₹149 |</p>
+          <p class="m-0 fw-bolder fs-5 mx-3">Headphones</p>
+          <div  class="main-box2-1 d-flex my-3">
+            <div class="b0x-1">
+              <img src="ama21.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3 mop">Starting ₹249 | boAt</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama22.jpg" alt="" height="78px" class="ref">
+              <p class="mop">Starting ₹349 | boult</p>
+            </div> 
+          </div>
+          <div  class="main-box2-1 d-flex my-4">
+            <div class="b0x-1">
+              <img src="ama23.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3 mop">Starting ₹649 | Noise</p>
+            </div>
+            <div class="b0x-1-2 ">
+              <img src="ama24.jpg" alt="" height="78px" class="ref">
+              <p class="mop">Starting ₹149 | Zebronics</p>
+            </div>
+          </div>
+          <p class="mx-3 seemore mt-4">See all offers</p> 
+        </div>
+
+
+        <div class="box-3">
+          <p class="m-0 fw-bolder fs-5 mx-3 mt-3">Starting ₹199 | Amazon</p>
+          <p class="m-0 fw-bolder fs-5 mx-3">Brands & more</p>
+          <div  class="main-box2-1 d-flex my-3">
+            <div class="b0x-1">
+              <img src="ama25.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3 mop">Starting ₹199 | Bedsheets</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama26.jpg" alt="" height="78px" class="ref">
+              <p class="mop">Starting ₹199 | Curtains </p>
+            </div> 
+          </div>
+          <div  class="main-box2-1 d-flex my-3">
+            <div class="b0x-1">
+              <img src="ama27.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3 mop">Minimum 40% off | Ironing boards & more</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama28.jpg" alt="" height="78px" class="ref">
+              <p class="mop">Up to 60% off | Home decor</p>
+            </div>
+          </div>
+          <p class="mx-3 seemore">See more</p> 
+        </div>
+
+
+        <div class="box-4">
+          <p class="m-0 fw-bolder fs-5 mx-3 mt-3">Up to 60% off | Styles for</p>
+          <p class="m-0 fw-bolder fs-5 mx-3">women</p>
+          <div  class="main-box2-1 d-flex my-3">
+            <div class="b0x-1">
+              <img src="ama29.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3 mop">Women's Clothing</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama30.jpg" alt="" height="78px" class="ref">
+              <p class="mop">Footwear+Handbags</p>
+            </div> 
+          </div>
+          <div  class="main-box2-1 d-flex my-3">
+            <div class="b0x-1">
+              <img src="ama31.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3 mop">Watches</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama32.jpg" alt="" height="78px" class="ref">
+              <p class="mop">Fashion jewellery</p>
+            </div>
+          </div>
+          <p class="mx-3 seemore mt-5">End of season sale</p> 
+        </div>
+       </div>
+      </div>
+      
+      
+     
+
+      <div class="row-three">
+        <div class="d-flex justify-content-start align-items-center">
+          <h5 class="mx-3 m-0">Up to 75% off | A wide range of electronics & accessories from Small businesses <h6 class="seemore m-0">See more</h6></h5>
+        </div>
+        <div class="box-9 d-flex justify-content-start gap-2">
+            <img src="ama33.jpg" alt="">
+            <img src="ama34.jpg" alt="">
+            <img src="ama35.jpg" alt="">
+            <img src="ama36.jpg" alt="" width="35%">
+            <img src="ama37.jpg" alt="">
+            <img src="ama38.jpg" alt="">
+            <img src="ama39.jpg" alt="">
+            <img src="ama40.jpg" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="row-four">
+       <div class="d-flex justify-content-start align-items-center">
+        <h5 class="mx-3 m-0">Min. 50% off | Unique home finds | Amazon Brands & more <h6 class="seemore m-0">See all</h6></h5>
+       </div>
+        <div class="box-10 d-flex justify-content-start gap-2">
+          <img src="ama41.jpg" alt="">
+          <img src="ama42.jpg" alt="">
+          <img src="ama43.jpg" alt="">
+          <img src="ama44.jpg" alt="">
+          <img src="ama45.jpg" alt="">
+          <img src="ama46.jpg" alt="">
+          <img src="ama47.jpg" alt="">
+        </div>
+      </div>
+
+
+
+      <div class="row-one d-flex">
+        <div class="box-1 d-flex flex-wrap ">
+          <p class="m-0 fw-bolder fs-5 mx-3 mt-4">Appliances for your</p>
+          <p class="m-0 fw-bolder fs-5 mx-3">home | Up to 55% off</p>
+          <div  class="main-box1 d-flex my-3">
+            <div class="b0x-1">
+              <img src="ama1.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3">Air conditioners</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama2.png" alt="" height="78px" class="ref">
+              <p class="">Refrigerators</p>
+            </div> 
+          </div>
+          <div  class="main-box1 d-flex my-3">
+            <div class="b0x-1">
+              <img src="ama3.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3">Microwaves</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama4.jpg" alt="" height="78px" class="ref">
+              <p class="">Washing machines</p>
+            </div> 
+          </div>
+          <p class="mx-3 seemore">See more</p>
+        </div>
+
+
+        <div class="box-2">
+          <p class="m-0 fw-bolder fs-5 mx-3 mt-3">Starting ₹99 | Home</p>
+          <p class="m-0 fw-bolder fs-5 mx-3">improvement essentials</p>
+          <div  class="main-box2-1 d-flex my-3">
+            <div class="b0x-1">
+              <img src="ama5.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3 mop">Spin mops,wipes & more</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama6.jpg" alt="" height="78px" class="ref">
+              <p class="mop">Bathroom hardware & accessories</p>
+            </div> 
+          </div>
+          <div  class="main-box2-2 d-flex my-3">
+            <div class="b0x-1">
+              <img src="ama7.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3 mop">Hammers, screwdrivers & more</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama8.jpg" alt="" height="78px" class="ref">
+              <p class="mop">Extension boards, plugs & more</p>
+            </div>
+          </div>
+          <p class="mx-3 seemore">Explore all</p> 
+        </div>
+
+
+        <div class="box-3">
+          <p class="m-0 fw-bolder fs-5 mx-3 mt-3">Revamp your home in</p>
+          <p class="m-0 fw-bolder fs-5 mx-3">style</p>
+          <div  class="main-box2-1 d-flex my-3">
+            <div class="b0x-1">
+              <img src="ama9.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3 mop">Cushion covers, bedsheets & more</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama10.jpg" alt="" height="78px" class="ref">
+              <p class="mop">Figurines, vases & more</p>
+            </div> 
+          </div>
+          <div  class="main-box2-2 d-flex my-4">
+            <div class="b0x-1">
+              <img src="ama11.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3 mop">Home storage</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama12.jpg" alt="" height="78px" class="ref">
+              <p class="mop">Lighting solutions</p>
+            </div>
+          </div>
+          <p class="mx-3 seemore mt-4">Explore all</p> 
+        </div>
+
+
+        <div class="box-4">
+          <p class="m-0 fw-bolder fs-5 mx-3 mt-3">Explore more from Small</p>
+          <p class="m-0 fw-bolder fs-5 mx-3">Businesses</p>
+          <div  class="main-box2-1 d-flex my-3">
+            <div class="b0x-1">
+              <img src="ama13.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3 mop">Ethnic, dresses & more</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama14.jpg" alt="" height="78px" class="ref">
+              <p class="mop">Decor</p>
+            </div> 
+          </div>
+          <div  class="main-box2-2 d-flex my-3">
+            <div class="b0x-1">
+              <img src="ama15.jpg" alt="" height="78px" class="mx-3">
+              <p class="mx-3 mop">Fashion accessories</p>
+            </div>
+            <div class="b0x-1-2">
+              <img src="ama16.jpg" alt="" height="78px" class="ref">
+              <p class="mop">Glassware & drinkware</p>
+            </div>
+          </div>
+          <p class="mx-3 seemore mt-5">Explore all</p> 
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
